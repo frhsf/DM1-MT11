@@ -1,0 +1,414 @@
+\documentclass[12pt,a4paper, french]{article} 
+\usepackage[T1]{fontenc}              
+\usepackage[utf8]{inputenc}  
+\usepackage[french]{babel}
+\frenchbsetup{StandardLists=true}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage[hidelinks]{hyperref}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage[skip=0.13cm]{parskip}
+\usepackage{times}
+\usepackage{amsmath}
+\setlength\parindent{20pt}
+
+\title{DM1 MT11}
+\author{Léo Eugène, Mathieu Poveda, Sacha Hénaff}
+\date{}
+\begin{document}
+
+
+\maketitle
+
+\section*{Exercice 1}
+
+1) On cherche de développement limité de cos(x) à l'ordre 4 en 0. On a:
+\begin{center}
+    \begin{equation*}
+        cos(x)=cos(0)-xsin(0)-\frac{x^2}{2}cos(0)+\frac{x^2}{6}sin(0)+\frac{x^4}{24}cos(0)+x^4\epsilon(x) 
+    \end{equation*}
+\end{center}
+
+Donc:
+\begin{center}
+    \begin{equation*} 
+        cos(x)=1-\frac{x^2}{2}+\frac{x^4}{24}+x^4\epsilon(x)
+    \end{equation*}
+\end{center}
+
+On cherche le développement limité de \begin{math}
+    (1-cos(x))^2
+\end{math}. On a: 
+\begin{center}
+    \begin{equation*}
+        1-cos(x)=\frac{x^2}{2}-\frac{x^4}{24}+x^4\epsilon(x)
+    \end{equation*}
+\end{center}
+
+De plus, on sait que le DL de \begin{math}
+    x^2=x^2
+\end{math}. Donc par composition, on a:
+\begin{center}
+    \begin{equation*}
+        (1-cos(x))^2=(\frac{x^2}{2}-\frac{x^4}{24})^2+x^4\epsilon(x)
+    \end{equation*}
+\end{center}
+
+En ne gardant que les termes d'ordres 4 maximum, on obtient:
+
+\begin{center}
+    \begin{equation*}
+        (1-cos(x))^2=\frac{x^4}{4}+x^4\epsilon(x)
+    \end{equation*}
+\end{center}
+
+On cherche le DL de \begin{math}
+    cos(x)^2\end{math}. On a:
+
+    \begin{center}
+        \begin{equation*}
+            cos(x)^2=(1-\frac{x^2}{2}+\frac{x^4}{24})^2+x^4\epsilon(x)
+        \end{equation*}
+    \end{center}
+
+En développant cette expression et en ne gardant que les termes d'ordres 4 maximum, on a:
+\begin{center}
+    \begin{equation*}
+        cos(x)^2=1-\frac{x^2}{2}+\frac{x^4}{24}-\frac{x^2}{2}+\frac{x^4}{4}+\frac{x^4}{24}+x^4\epsilon(x)
+    \end{equation*}
+\end{center}
+\begin{center}
+    \begin{equation*}
+        cos(x)^2=1-x^2+\frac{x^4}{3}+x^4\epsilon(x)
+    \end{equation*}
+\end{center}
+
+De plus, on a:
+\begin{center}
+    \begin{equation*}
+        (1-cos(x)^2)=1-2cos(x)+cos(x)^2=1-(2-x^2+\frac{x^4}{12})+1-x^2+\frac{x^4}{4}+2\frac{x^4}{24}+x^4\epsilon(x)
+    \end{equation*}
+\end{center}
+
+On obtient finalement que le DL de \begin{math}:(1-cos(x))^2\end{math} est:
+\begin{center}
+    \begin{equation*}
+    (1-cos(x))^2=\frac{x^4}{4}+x^4\epsilon
+    \end{equation*}
+\end{center}
+
+On retrouve bien le même résultat que précédemment.
+
+2) a. On cherche à exprimer le développement de Taylor-Lagrange à l'ordre 4 au voisinnage de \begin{math}
+    \frac{\pi}{4}
+\end{math} de cos(x):
+\begin{center}
+    \begin{multline*}
+        cos(x)=cos(\frac{\pi}{4})+(x-\frac{\pi}{4})cos'(\frac{\pi}{4})+\frac{(x-\frac{\pi}{4})^2}{2}cos''(\frac{\pi}{4}) \\
+        +\frac{(x-\frac{\pi}{4})^3}{3!}cos'''(\frac{\pi}{4})+\frac{(x-\frac{\pi}{4})^4}{4!}cos''''(\frac{\pi}{4})+\frac{(x-\frac{\pi}{4})^5}{5!}cos'''''(\frac{\pi}{4}+\theta h)
+    \end{multline*}
+\end{center}
+
+On a donc:
+\begin{center}
+    \begin{equation*}
+        cos(x)=\frac{\sqrt{2}}{2}-(x-\frac{\pi}{4})sin(\frac{\pi}{4})-\frac{(x-\frac{\pi}{4})^2}{2}cos(\frac{\pi}{4})
+        +\frac{(x-\frac{\pi}{4})^3}{3!}sin(\frac{\pi}{4})+\frac{(x-\frac{\pi}{4})^4}{4!}cos(\frac{\pi}{4})+\frac{(x-\frac{\pi}{4})^5}{5!}sin(\frac{\pi}{4}+\theta h)
+    \end{equation*}
+\end{center}
+
+On a finalement:
+\begin{center}
+    \begin{equation*}
+       cos(x)=\frac{\sqrt{2}}{2}-\frac{\sqrt{2}}{2}(x-\frac{\pi}{4})-\frac{\sqrt{2}}{4}(x-\frac{\pi}{4})^2+\frac{\sqrt{2}}{12}(x-\frac{\pi}{4})^3+\frac{\sqrt{2}}{48}(x-\frac{\pi}{4})^4+\frac{(x-\frac{\pi}{4})^5}{5!}sin(\frac{\pi}{4}+\theta h)
+    \end{equation*}
+\end{center}
+On retrouve bien le même résultat que précédemment
+  
+b) On cherche le développement de Taylor-Young de cos(x) à l'ordre 4 en \begin{math}
+    \frac{\pi}{4}
+\end{math}. On, sait que les parties régulières des développement de Taylor-Young et Taylor-Lagrange sont les mêmes, seuls les restes varient. On a donc:
+
+\begin{center}
+    \begin{equation*}
+       cos(x)=\frac{\sqrt{2}}{2}-\frac{\sqrt{2}}{2}(x-\frac{\pi}{4})-\frac{\sqrt{2}}{4}(x-\frac{\pi}{4})^2+\frac{\sqrt{2}}{12}(x-\frac{\pi}{4})^3+\frac{\sqrt{2}}{48}(x-\frac{\pi}{4})^4+(x-\frac{\pi}{4})^4\epsilon(x-\frac{\pi}{4})
+    \end{equation*}
+\end{center}
+
+c) On réalise un changement de variable, on pose \begin{math}
+    x=h+\frac{\pi}{4}
+\end{math}. On sait que:
+\begin{center}
+    \begin{equation*}
+       cos(a+b)=cos(a)cos(b)-sin(a)sin(b)
+    \end{equation*}
+\end{center}
+
+Donc:
+\begin{center}
+    \begin{equation*}
+       cos(x)=cos(h+\frac{\pi}{4})=cos(h)cos(\frac{\pi}{4})-sin(h)sin(\frac{\pi}{4})=\frac{\sqrt{2}}{2}cos(h)-\frac{\sqrt{2}}{2}sin(h)
+    \end{equation*}
+\end{center}
+
+d)
+
+On pose: \begin{math}
+    x=h+\frac{\pi}{4} h=x-\frac{\pi}{4}
+\end{math} 
+On a: 
+\begin{center}
+    \begin{equation*}
+       sin(h)=h-\frac{h^3}{3!}+h^4\epsilon(h)
+    \end{equation*}
+\end{center}
+Et:
+\begin{center}
+    \begin{equation*}
+       cos(h)=1-\frac{h^2}{2}+\frac{h^4}{24}+h^4\epsilon(h)
+    \end{equation*}
+\end{center}
+
+On remplce h par son expression, on obtient:
+\begin{center}
+    \begin{equation*}
+       sin(h)=(x-\frac{\pi}{4})-\frac{(x-\frac{\pi}{4})^3}{3!}+x^4\epsilon(x)
+    \end{equation*}
+\end{center}
+Et:
+\begin{center}
+    \begin{equation*}
+        cos(x)=1-\frac{(x-\frac{\pi}{4})^2}{2}+\frac{(x-\frac{\pi}{4})^4}{24}+x^4\epsilon(x)
+    \end{equation*}
+\end{center}
+
+On remplace les expressions de sin et cos dans l'expression de la question c). On obtient:
+\begin{center}
+    \begin{equation*}
+        cos(h+\frac{\pi}{4})=\frac{\sqrt{2}}{2}(1-\frac{(x-\frac{\pi}{4})^2}{2}+\frac{(x-\frac{\pi}{4})^4}{24}-(x-\frac{\pi}{4})-\frac{(x-\frac{\pi}{4})^3}{3!})+x^4\epsilon(x)
+    \end{equation*}
+\end{center}
+En développant, on a:
+\begin{center}
+    \begin{equation*}
+        cos(h+\frac{\pi}{4})=cos(x)=\frac{\sqrt{2}}{2}-\frac{\sqrt{2}}{2}(x-\frac{\pi}{4})-\frac{\sqrt{2}(x-\frac{\pi}{4})^2}{4}+\frac{\sqrt{2}(x-\frac{\pi}{4})^3}{24}+\frac{\sqrt{2}(x-\frac{\pi}{4})^4}{48}+(x-\frac{\pi}{4})^4\epsilon(x)
+    \end{equation*}
+\end{center}    
+On retrouve bien l'expression de la question b.
+\newpage
+\section*{Exercice 2}
+ On cherche \begin{math}
+    \lim_{x \to 0} \frac{cos(x)}{sin(x)}
+ \end{math}, qui n'est pas une forme indéterminée puis cos(x) tend vers 1 en 0 et sin(x) tend vers 0 en 0. On a donc: \begin{math}
+    \lim_{x \to 0}\frac{cos(x)}{sin(x)}=+ \infty
+ \end{math}.
+
+ On cherche \begin{math}\lim_{x \to 0}\frac{1-cos(x)}{sin(x)}\end{math}. On connait les DL de cos(x) et sin(x), on peut donc aussi connaître le DL de 1-cos(x). On peut ainsi utiliser les parties principales des DL pour calculer la limite. On a:
+ \begin{center}
+    \begin{equation*}
+        1-cos(x)=\frac{x^2}{2}-\frac{x^4}{24}+x^4\epsilon(x)
+    \end{equation*}
+\end{center}
+
+Et: 
+\begin{center}
+    \begin{equation*}
+        sin(x)=x-\frac{x^3}{6}+x^3\epsilon(x)
+    \end{equation*}
+\end{center}
+
+Donc: 
+\begin{center}
+    \begin{equation*}
+        \frac{1-cos(x)}{sin(x)}=\frac{\frac{x^2}{2}+x^2\epsilon(x)}{x+x\epsilon(x)}=\frac{x^2(\frac{1}{2}+\epsilon(x))}{x(1+\epsilon(x))}=x\frac{\frac{1}{2}+\epsilon(x)}{1+\epsilon(x)}
+    \end{equation*}
+\end{center}
+
+Ainsi, on voit que:
+\begin{center}
+    \begin{equation*}
+        \lim_{x \to 0}\frac{1-cos(x)}{sin(x)}=0
+    \end{equation*}
+\end{center}
+
+On a:
+\begin{center}
+    \begin{math}
+        ln(1+x)=x-\frac{x^2}{2}+x^2\epsilon(x)\end{math} et \begin{math}
+            sin(x)+x=2x+x\epsilon(x)
+        \end{math} 
+\end{center}
+
+Donc:
+\begin{center}
+    \begin{equation*}
+    \frac{ln(1+x)}{sin(x)+x}=\frac{x+\epsilon(x)}{2x+\epsilon(x)}=\frac{x(1+\epsilon(x))}{x(2+\epsilon(x))}=\frac{1+\epsilon(x)}{2+\epsilon(x)}    
+    \end{equation*}
+\end{center}
+
+Donc: 
+\begin{center}
+    \begin{equation*}
+    lim_{x \to 0}\frac{ln(1+x)}{sin(x)+x}=\frac{1}{2}
+    \end{equation*}
+\end{center}
+
+De même, on a: \begin{math}
+    sin(x)+x^3=x+\frac{5x^3}{6}+x^3\epsilon(x)
+\end{math}. Donc:
+\begin{center}
+    \begin{equation*}
+    \frac{ln(1+x)}{sin(x)+x^3}=\frac{x+\epsilon(x)}{x+\epsilon(x)}=\frac{x(1+\epsilon(x))}{x(1+\epsilon(x))}=\frac{1+\epsilon(x)}{1+\epsilon(x)}
+    \end{equation*}
+\end{center}
+\newpage
+Donc:
+\begin{center}
+    \begin{equation*}
+    lim_{x \to 0}\frac{ln(1+x)}{sin(x)+x^3}=1
+    \end{equation*}
+\end{center}
+
+De même, on a: \begin{math}
+    sin(x)-x=-\frac{x^3}{6}+x^3\epsilon(x)
+\end{math}. Ainsi:
+\begin{center}
+    \begin{equation*}
+       \frac{ln(1+x)}{sin(x)-x}=\frac{x+x\epsilon(x)}{-\frac{x^3}{6}+x^3\epsilon(x)}=\frac{x(1+\epsilon(x))}{x(-\frac{x^2}{6}+x^2\epsilon(x))}=-\frac{(1+\epsilon(x))}{(\frac{x^2}{6}+x^2\epsilon(x))}
+    \end{equation*}
+\end{center}
+
+On a donc:
+\begin{center}
+    \begin{equation*}
+       lim_{x \to 0}\frac{ln(1+x)}{sin(x)-x}=-\infty
+    \end{equation*}
+\end{center}
+
+On sait que le DL de \begin{math}
+    x^n=x^n
+\end{math}. On a donc:
+\begin{center}
+    \begin{equation*}
+    \frac{x^n}{sin(x)-x}=\frac{x+x\epsilon(x)}{-\frac{x^3}{6}+x^3\epsilon(x)}=x^n\frac{1}{x^3(-\frac{1}{6}+\epsilon(x))}=x^{n-3}\frac{1}{-\frac{1}{6}+\epsilon(x)}
+    \end{equation*}
+\end{center}
+
+On doit donc distinguer 3 cas pour déterminer la limite de cette expression. Premièrement si n=3:
+\begin{center}
+    \begin{equation*}
+    lim_{x \to 0}\frac{x^n}{sin(x)-x}=-6
+    \end{equation*}
+\end{center}
+
+Si \begin{math}
+    n<3
+\end{math}, on a:
+\begin{center}
+    \begin{equation*}
+    lim_{x \to 0}\frac{x^n}{sin(x)-x}=-\infty
+    \end{equation*}
+\end{center}
+
+Enfin, si \begin{math}
+    n>3
+\end{math}, on a:
+\begin{center}
+    \begin{equation*}
+    lim_{x \to 0}\frac{x^n}{sin(x)-x}=0
+    \end{equation*}
+\end{center}
+\newpage
+
+\section*{Exercice 3}
+
+On a: \begin{math}f(x,y)=(x^2+y^2)^{3/2}
+\end{math}
+
+1) On cherche \begin{math}
+    \frac{\partial^2f}{\partial x^2}
+\end{math}
+
+On a: 
+\begin{center}
+    \begin{equation*}
+        \frac{\partial f}{\partial x}=\frac{6x}{2}(x^2+y^2)^{1/2}=3x(x^2+y^2)^{1/2}
+    \end{equation*}
+\end{center}
+
+Et donc:
+\begin{center}
+    \begin{equation*}
+        \frac{\partial^2f}{\partial x^2}=u'v+v'u=3(x^2+y^2)^{1/2}+3x^2(x^2+y^2)^{-1/2}=\frac{3(x^2+y^2)+3x^2}{(x^2+y^2)^{1/2}}=\frac{3(2x^2+y^2)}{(x^2+y^2)^{1/2}}
+    \end{equation*}
+\end{center}
+
+2) On a: \begin{math}
+    g(r,\theta)=f(rcos(\theta),rsin(\theta))
+\end{math}
+
+a. On a donc:
+\begin{center}
+    \begin{equation*}
+        g(r,\theta)=f(rcos(\theta),rsin(\theta))=((rcos(\theta))^2+rsin(\theta)^2)^{3/2}=(r^2(cos^2(\theta)+sin^2(\theta)^2))^{3/2}=r^{6/2}=r^3
+    \end{equation*}
+\end{center}
+
+On a donc:
+\begin{center}
+    \begin{equation*}
+        \frac{\partial g}{\partial r}=3r^2
+    \end{equation*}
+\end{center}
+Et:
+\begin{center}
+    \begin{equation*}
+        \frac{\partial g}{\partial \theta}=0
+\end{equation*}
+\end{center}
+
+On a:
+\begin{center}
+    \begin{equation*}
+        \frac{\partial g}{\partial \theta}=-rsin(\theta)\frac{\partial f}{\partial x}(rcos(\theta),rsin(\theta))+rcos(\theta)\frac{\partial f}{\partial y}(rcos(\theta),rsin(\theta))
+\end{equation*}
+\end{center}
+
+Et:
+\begin{center}
+    \begin{equation*}
+        \frac{\partial g}{\partial r}=cos(\theta)\frac{\partial f}{\partial x}(rcos(\theta),rsin(\theta))+sin(\theta)\frac{\partial f}{\partial y}(rcos(\theta),rsin(\theta))
+\end{equation*}
+\end{center}
+
+En utilisant la même méthode qu'en cours dans l'exercice A.2.15 en composant ces deux equations, on peut déterminer que:
+\begin{center}
+    \begin{equation*}
+        \frac{\partial f}{\partial x}=cos(\theta)\frac{\partial g}{\partial r}(rcos(\theta),rsin(\theta))-\frac{sin(\theta)}{r}\frac{\partial g}{\partial \theta}(rcos(\theta),rsin(\theta))
+    \end{equation*}
+\end{center}
+Or, on sait que \begin{math}\frac{\partial g}{\partial \theta}=0
+\end{math}et: \begin{math}
+    \frac{\partial g}{\partial r}=3r^2
+\end{math}
+
+Donc:
+\begin{center}
+    \begin{equation*}
+        \frac{\partial f}{\partial x}(rcos(\theta),rsin(\theta))=g_1(r,\theta)=3r^2cos(\theta)
+    \end{equation*}
+\end{center}
+
+b. On a donc:
+\begin{center}
+    \begin{equation*}
+        \frac{\partial g_1}{\partial r}=6rcos(\theta)
+    \end{equation*}
+\end{center}
+Et:
+\begin{center}
+    \begin{equation*}
+        \frac{\partial g_1}{\partial \theta}=-3r^2sin(\theta)
+    \end{equation*}
+\end{center}
+\end{document}
